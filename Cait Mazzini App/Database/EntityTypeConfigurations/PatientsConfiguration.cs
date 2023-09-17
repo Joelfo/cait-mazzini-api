@@ -4,11 +4,10 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Cait_Mazzini_App.Database.EntityTypeConfigurations
 {
-    public class CountryEntityTypeConfiguration
+    public class PatientsConfiguration : IEntityTypeConfiguration<Patient>
     {
-        public void Configure(EntityTypeBuilder<Country> builder)
+        public void Configure(EntityTypeBuilder<Patient> builder) 
         {
-            builder.ToTable("countries");
         }
     }
 }

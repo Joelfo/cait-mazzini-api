@@ -1,6 +1,6 @@
 ﻿namespace Cait_Mazzini_App.DTOs
 {
-    public class PatientExamDTO : BaseModelDTO
+    public class PatientExamDTO
     {
         public DateOnly date { get; set; }
 

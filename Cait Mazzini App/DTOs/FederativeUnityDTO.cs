@@ -2,9 +2,12 @@
 
 namespace Cait_Mazzini_App.DTOs
 {
-    public class CountryDTO
+    public class FederativeUnityDTO
     {
-        [Required] 
+        [Required]
         public string name { get; set; }
+
+        [Required]
+        public int? countryId { get; set; }
     }
 }

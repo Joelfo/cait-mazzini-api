@@ -1,52 +1,75 @@
-﻿using Cait_Mazzini_App.Enums;
+﻿using Cait_Mazzini_App.DTOs.ValidationAttributes;
+using Cait_Mazzini_App.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace Cait_Mazzini_App.DTOs
 {
-    public class PatientDTO : BaseModelDTO
+    public class PatientDTO
     {
-        public string name { get; set; } = string.Empty;
+        [Required]
+        public string name { get; set; }
 
-        public string recordCode { get; set; } = string.Empty;
+        [Required]
+        public string recordCode { get; set; }
 
-        public string susCard { get; set; } = string.Empty;
+        [Required, Cns]
+        public string susCard { get; set; }
 
-        public string rg { get; set; } = string.Empty;
+        [Required]
+        public string rg { get; set; }
 
-        public string cpf { get; set; } = string.Empty;
+        [Required, Cpf]
+        public string cpf { get; set; }
 
+        [Required]
         public DateOnly admissionDate { get; set; }
 
-        public EPatientType type { get; set; }
+        [Required]
+        public EPatientType? type { get; set; }
 
-        public EArrival arrivalType { get; set; }
+        [Required]
+        public EArrival? arrivalType { get; set; }
 
-        public string telephone1 { get; set; } = string.Empty;
+        [Required]
+        public string telephone1 { get; set; }
 
-        public string telephone2 { get; set; } = string.Empty;
+        public string? telephone2 { get; set; }
 
-        public string cep { get; set; } = string.Empty;
+        [Required]
+        public string cep { get; set; }
 
+        [Required]
         public bool isPregnant { get; set; }
 
+        [Required]
         public DateOnly birthDate { get; set; }
 
-        public string motherName { get; set; } = string.Empty;
+        [Required]
+        public string motherName { get; set; }
 
-        public string street { get; set; } = string.Empty;
+        [Required]
+        public string addressStreet { get; set; }
 
-        public int number { get; set; }
+        public int? addressNumber { get; set; }
 
+        public string? addressComplement { get; set; }
+
+        [Required]
         public ESpecialPopulation specialPopulationType { get; set; } 
 
-        public string otherSpacialPopulation { get; set; } = string.Empty;
+        public string? otherSpacialPopulation { get; set; }
 
+        [Required]
         public EBiologicalGender biologicalGender { get; set; }
 
-        public string birthPlace { get; set; } = string.Empty;
+        [Required]
+        public int? birthplaceId { get; set; }
 
-        public int districtId { get; set; }
+        [Required]
+        public int? districtId { get; set; }
 
-        public int birthCountryId { get; set; }
+        [Required]
+        public int? birthCountryId { get; set; }
 
         public int? healthUnitytId { get; set; } = null;
     }

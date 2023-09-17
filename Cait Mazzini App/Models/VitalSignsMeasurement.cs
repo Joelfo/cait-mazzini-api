@@ -6,18 +6,20 @@ namespace Cait_Mazzini_App.Models
     {
         public DateTime MeasurementDateTime { get; set; }
 
-        public double MmhgPa { get; set; }
+        public string MmhgPa { get; set; }
 
-        public double BpmFc { get; set; }
+        public decimal BpmFc { get; set; }
 
-        public double CelsiusTax { get; set; }
+        public decimal irpmFr { get; set; }
 
-        public double OxygenSaturationPercentage { get; set; }
+        public decimal CelsiusTax { get; set; }
 
-        public double KgWeight { get; set; }
+        public decimal OxygenSaturationPercentage { get; set; }
 
-        public double MHeight { get; set; }
+        public decimal KgWeight { get; set; }
 
-        public virtual Patient Patient { get; set; }
+        public decimal MHeight { get; set; }
+
+        public virtual Patient Patient { get; set; } = null!;
     }
 }

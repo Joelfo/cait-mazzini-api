@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cait_Mazzini_App.Controllers
 {
-    public class PatientExamController : APIResourceController<PatientExamDTO, PatientExam>
+    public class PatientExamController : APIResourceController<PatientExamDTO, PatientExamDTO, PatientExam, IGenericRepository<PatientExam, int>>
     {
         private readonly IConfiguration _configuration;
         public PatientExamController(IGenericRepository<PatientExam, int> genericRepository, IMapper mapper, IConfiguration configuration) : base(genericRepository, mapper)
@@ -19,7 +19,7 @@ namespace Cait_Mazzini_App.Controllers
         {
             if (dto.examFile.Length == 0)
             {
-                return new BadRequestResult();
+                return BadRequest("An empty file has been provided");
             }
             
             var filePath = Path.Combine(_configuration["StoredExamFilesPath"], Path.GetRandomFileName());
@@ -40,9 +40,9 @@ namespace Cait_Mazzini_App.Controllers
                 }
             };
 
-            _genericRepository.Create(entity);
+            _repository.Create(entity);
 
-            return new CreatedResult("", null);
+            return Created("", null);
         }
     }
 }

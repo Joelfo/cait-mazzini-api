@@ -10,34 +10,36 @@ namespace Cait_Mazzini_App.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public abstract class APIResourceController<TDto, TEntity> : ControllerBase
+    public abstract class APIResourceController<TDto, TViewModel, TEntity, TRepository> : ControllerBase
         where TEntity : BaseModel
         where TDto : class
+        where TRepository : IGenericRepository<TEntity, int>
     {
-        protected readonly IGenericRepository<TEntity, int> _genericRepository;
+        protected readonly TRepository _repository;
         protected readonly IMapper _mapper;
 
-        public APIResourceController(IGenericRepository<TEntity, int> genericRepository, IMapper mapper)
+        public APIResourceController(TRepository repository, IMapper mapper)
         {
-            _genericRepository = genericRepository;
+            _repository = repository;
             _mapper = mapper;
         }
 
         [HttpGet]
-        public virtual async Task<IActionResult> GetÁll([FromQuery] int skip = 0, [FromQuery] int take = 10)
+        public virtual async Task<IActionResult> Áll([FromQuery] int? skip, [FromQuery] int? take)
         {
-            var entities = _genericRepository.All(skip, take);
-            var dtos = entities.Select(entity => _mapper.Map<TDto>(entity));
-            return new OkObjectResult(dtos);
+            IList<TEntity> entities;
+            entities = _repository.All(skip, take);
+            var dtos = entities.Select(entity => _mapper.Map<TViewModel>(entity));
+            return Ok(dtos);
         }
 
         [HttpGet("{id}")]
-        public virtual async Task<IActionResult> Get(int id)
+        public virtual async Task<IActionResult> Show(int id)
         {
-            var entity = _genericRepository.Find(id);
+            var entity = _repository.Find(id);
             if (entity != null)
             {
-                var dto = _mapper.Map<TDto>(entity);
+                var dto = _mapper.Map<TViewModel>(entity);
                 return new OkObjectResult(dto);
             }
             else
@@ -50,8 +52,8 @@ namespace Cait_Mazzini_App.Controllers
         public virtual async Task<IActionResult> Create(TDto dto)
         {
             var entity = _mapper.Map<TEntity>(dto);
-            _genericRepository.Create(entity);
-            return new CreatedResult("", null);
+            _repository.Create(entity);
+            return Ok(entity.Id);
         }
 
         [HttpPut("{id}")]
@@ -59,15 +61,15 @@ namespace Cait_Mazzini_App.Controllers
         {
             var entity = _mapper.Map<TEntity>(dto);
             entity.Id = id;
-            _genericRepository.Update(entity);
-            return new OkResult();
+            _repository.Update(entity);
+            return Ok();
         }
 
         [HttpDelete("{id}")]
         public virtual async Task<IActionResult> Delete([FromRoute] int id)
         {
-            _genericRepository.Delete(id);
-            return new OkResult();
+            _repository.Delete(id);
+            return Ok();
         }
     }
 }

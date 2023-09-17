@@ -1,6 +1,6 @@
-﻿namespace Cait_Mazzini_App.DTOs
+﻿namespace Cait_Mazzini_App.ViewModels
 {
-    public class CityDTO
+    public class CityViewModel
     {
         public string name { get; set; } = string.Empty;
     }

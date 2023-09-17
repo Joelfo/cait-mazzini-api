@@ -24,7 +24,7 @@ namespace Cait_Mazzini_App.Models
 
         public string Telephone1 { get; set; } = string.Empty;
 
-        public string Telephone2 { get; set; } = string.Empty;
+        public string? Telephone2 { get; set; } = string.Empty;
 
         public string Cep { get; set; } = string.Empty;
 
@@ -34,19 +34,21 @@ namespace Cait_Mazzini_App.Models
 
         public string MotherName { get; set; } = string.Empty;
 
-        public string Street { get; set; } = string.Empty;
+        public string AddressStreet { get; set; } = string.Empty;
 
-        public int Number { get; set; }
+        public int? AddressNumber { get; set; }
+
+        public string? AddressComplement { get; set; }
 
         public ESpecialPopulation SpecialPopulationType { get; set; }
 
-        public string OtherSpecialPopulation { get; set; } = string.Empty;
+        public string? OtherSpecialPopulation { get; set; } = string.Empty;
 
         public EBiologicalGender BiologicalGender { get; set; }
 
         public virtual District District { get; set; } = null!;
 
-        public virtual string Birthplace { get; set; } = null!;
+        public virtual FederativeUnity Birthplace { get; set; } = null!;
 
         public virtual Country BirthCountry { get; set; } = null!;
 

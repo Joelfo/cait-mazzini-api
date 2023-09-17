@@ -4,7 +4,7 @@ namespace Cait_Mazzini_App.Database.Repositories.Interfaces
 {
     public interface IGenericRepository<TEntity, TPrimaryKey> where TEntity : class
     {
-        IEnumerable<TEntity> All(int skip, int take);
+        IList<TEntity> All(int? skip, int? take);
 
         TEntity? Find(TPrimaryKey id);
 

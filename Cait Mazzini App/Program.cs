@@ -19,6 +19,10 @@ builder.Services.AddDbContext<CaitMazziniDbContext>(opts =>
 builder.Services.AddDependencyInjectionGroup();
 builder.Services.AddControllers();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddCors(options => options.AddPolicy(
+    name: "AllOriginsAllowed",
+    policy => policy.AllowAnyHeader().AllowAnyMethod().SetIsOriginAllowed(origin => true)
+    )); ;
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -35,7 +39,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseDeveloperExceptionPage();
+
 app.UseAuthorization();
+
+app.UseCors("AllOriginsAllowed");
 
 app.MapControllers();
 

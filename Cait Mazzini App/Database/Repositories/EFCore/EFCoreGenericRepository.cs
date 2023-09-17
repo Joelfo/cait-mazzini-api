@@ -6,37 +6,45 @@ namespace Cait_Mazzini_App.Database.Repositories.EFCore
     public class EFCoreGenericRepository<TEntity, TPrimaryKey> : IGenericRepository<TEntity, TPrimaryKey> 
         where TEntity : class
     {
-        private readonly CaitMazziniDbContext _dbContext;
+        protected readonly CaitMazziniDbContext _dbContext;
         public EFCoreGenericRepository(CaitMazziniDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public IEnumerable<TEntity> All(int skip, int take)
+        public virtual IList<TEntity> All(int? skip = null, int? take = null)
         {
-            return _dbContext.Set<TEntity>().Skip(skip).Take(take).ToList();
+            var set = _dbContext.Set<TEntity>();
+            if (skip.HasValue && take.HasValue)
+            {
+                return set.Skip(skip.Value).Take(take.Value).ToList();
+            }
+            else
+            {
+                return set.ToList();
+            }
         }
 
-        public TEntity? Find(TPrimaryKey id)
+        public virtual TEntity? Find(TPrimaryKey id)
         {
             return _dbContext.Set<TEntity>().Find(id);
         }
 
-        public void Create(TEntity entity)
+        public virtual void Create(TEntity entity)
         {
             _dbContext.Set<TEntity>().Attach(entity);
             _dbContext.Set<TEntity>().Add(entity);
             _dbContext.SaveChanges();
         }
 
-        public void Update(TEntity entity)
+        public virtual void Update(TEntity entity)
         {
             _dbContext.Set<TEntity>().Attach(entity);
             _dbContext.Set<TEntity>().Update(entity);
             _dbContext.SaveChanges();
         }
 
-        public void Delete(TPrimaryKey id)
+        public virtual void Delete(TPrimaryKey id)
         {
             var set = _dbContext.Set<TEntity>();
             var entity = set.Find(id);

@@ -23,5 +23,9 @@ namespace Cait_Mazzini_App.Database.Contexts
         public DbSet<District> Districts { get; set; }
         public DbSet<HealthUnity> HealthUnities { get; set; }
         public DbSet<Country> Countries { get; set; }
+
+        public DbSet<VitalSignsMeasurement> VitalSignsMeasurements { get; set; }
+        public DbSet<TrackingAppointmentChart> TrackingAppointmentCharts { get; set; }
+
     }
 }
