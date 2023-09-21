@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Cait_Mazzini_App.DTOs;
 using Cait_Mazzini_App.Models;
+using Cait_Mazzini_App.Models.Utils;
 using Cait_Mazzini_App.ViewModels;
+using Cait_Mazzini_App.ViewModels.Utils;
 
 namespace Cait_Mazzini_App.Profiles
 {
@@ -52,6 +54,7 @@ namespace Cait_Mazzini_App.Profiles
                 .ForMember(dto => dto.patientId, opt => opt.MapFrom(entity => entity.Patient.Id));
             CreateMap<TrackingAppointmentChartDTO, TrackingAppointmentChart>()
                 .ForPath(entity => entity.Patient.Id, opt => opt.MapFrom(dto => dto.patientId));
+            CreateMap<TrackingAppointmentChartBasicInfo, TrackingAppointmentChartBasicInfoViewModel>();
             #endregion
 
             #region Country

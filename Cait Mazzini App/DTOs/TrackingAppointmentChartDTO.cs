@@ -6,7 +6,7 @@ namespace Cait_Mazzini_App.DTOs
     public class TrackingAppointmentChartDTO
     {
         [Required]
-        public ETrackingAppointmentChartType type { get; set; }
+        public ETrackingAppointmentChartType? type { get; set; }
 
         [Required]
         public string schema { get; set; }
