@@ -1,17 +1,17 @@
-﻿using Cait_Mazzini_App.Models;
+﻿using CaitMazziniApp.Models;
 
-namespace Cait_Mazzini_App.Database.Repositories.Interfaces
+namespace CaitMazziniApp.Database.Repositories.Interfaces
 {
     public interface IGenericRepository<TEntity, TPrimaryKey> where TEntity : class
     {
-        IList<TEntity> All(int? skip, int? take);
+        Task<IList<TEntity>> All(int? skip, int? take);
 
-        TEntity? Find(TPrimaryKey id);
+        Task<TEntity?> Find(TPrimaryKey id);
 
-        void Create(TEntity entity);
+        Task Create(TEntity entity);
 
-        void Update(TEntity entity);
+        Task Update(TEntity entity);
 
-        void Delete(TPrimaryKey id);
+        Task Delete(TPrimaryKey id);
     }
 }

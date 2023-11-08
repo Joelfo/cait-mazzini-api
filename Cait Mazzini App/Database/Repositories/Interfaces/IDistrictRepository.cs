@@ -1,10 +1,10 @@
-﻿using Cait_Mazzini_App.Models;
+﻿using CaitMazziniApp.Models.Core;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
-namespace Cait_Mazzini_App.Database.Repositories.Interfaces
+namespace CaitMazziniApp.Database.Repositories.Interfaces
 {
     public interface IDistrictRepository : IGenericRepository<District, int>
     {
-        public IList<District> GetAllByCity(int cityId);
+        public Task<IList<District>> GetAllByCity(int cityId);
     }
 }

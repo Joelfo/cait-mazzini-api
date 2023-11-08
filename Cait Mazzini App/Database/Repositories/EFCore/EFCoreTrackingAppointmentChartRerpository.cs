@@ -1,11 +1,11 @@
-﻿using Cait_Mazzini_App.Database.Contexts;
-using Cait_Mazzini_App.Database.Repositories.Interfaces;
-using Cait_Mazzini_App.Enums;
-using Cait_Mazzini_App.Models;
-using Cait_Mazzini_App.Models.Utils;
+﻿using CaitMazziniApp.Database.Contexts;
+using CaitMazziniApp.Database.Repositories.Interfaces;
+using CaitMazziniApp.Enums;
+using CaitMazziniApp.Models.Charts;
+using CaitMazziniApp.Models.Charts.Utils;
 using Microsoft.EntityFrameworkCore;
 
-namespace Cait_Mazzini_App.Database.Repositories.EFCore
+namespace CaitMazziniApp.Database.Repositories.EFCore
 {
     public class EFCoreTrackingAppointmentChartRerpository : EFCoreGenericRepository<TrackingAppointmentChart, int>, ITrackingAppointmentChartRepository
     {
@@ -14,7 +14,7 @@ namespace Cait_Mazzini_App.Database.Repositories.EFCore
                 
         }
 
-        public virtual IList<TrackingAppointmentChart> AllByPatientAndType(int patientId, ETrackingAppointmentChartType type, int? skip = null, int? take = null)
+        public virtual async Task<IList<TrackingAppointmentChart>> AllByPatientAndType(int patientId, ETrackingAppointmentChartType type, int? skip = null, int? take = null)
         {
             var query = _dbContext.Set<TrackingAppointmentChart>().Where(x => x.Patient.Id == patientId).Where(x => x.Type == type);
 
@@ -23,11 +23,11 @@ namespace Cait_Mazzini_App.Database.Repositories.EFCore
                 query = query.Skip(skip.Value).Take(take.Value);
             }
 
-            return query.ToList();
+            return await query.ToListAsync();
             
         }
 
-        public virtual IList<TrackingAppointmentChartBasicInfo> AllBasicInfoByPatientAndType(int patientId, ETrackingAppointmentChartType type, int? skip = null, int? take = null)
+        public virtual async Task<IList<TrackingAppointmentChartBasicInfo>> AllBasicInfoByPatientAndType(int patientId, ETrackingAppointmentChartType type, int? skip = null, int? take = null)
         {
             var query = _dbContext.Set<TrackingAppointmentChart>()
                 .Where(x => x.Patient.Id == patientId)
@@ -38,9 +38,9 @@ namespace Cait_Mazzini_App.Database.Repositories.EFCore
                 query = query.Skip(skip.Value).Take(take.Value);
             }
 
-            return query
+            return await query
                 .Select(x => new TrackingAppointmentChartBasicInfo { Id = x.Id, Date = x.Date })
-                .ToList();
+                .ToListAsync();
         }
     }
 }

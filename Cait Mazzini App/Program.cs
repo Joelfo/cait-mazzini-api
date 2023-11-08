@@ -1,6 +1,6 @@
-using Cait_Mazzini_App.Database.Contexts;
-using Cait_Mazzini_App.Models;
-using Cait_Mazzini_App.ServiceCollectionExtensions;
+using CaitMazziniApp.Database.Contexts;
+using CaitMazziniApp.Models;
+using CaitMazziniApp.ServiceCollectionExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 

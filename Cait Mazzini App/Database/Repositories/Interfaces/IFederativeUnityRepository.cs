@@ -1,9 +1,9 @@
-﻿using Cait_Mazzini_App.Models;
+﻿using CaitMazziniApp.Models.Core;
 
-namespace Cait_Mazzini_App.Database.Repositories.Interfaces
+namespace CaitMazziniApp.Database.Repositories.Interfaces
 {
     public interface IFederativeUnityRepository : IGenericRepository<FederativeUnity, int>
     {
-        IList<FederativeUnity> AllByCountry(int countryId);
+        Task<IList<FederativeUnity>> AllByCountry(int countryId);
     }
 }

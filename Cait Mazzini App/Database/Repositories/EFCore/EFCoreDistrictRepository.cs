@@ -1,8 +1,9 @@
-﻿using Cait_Mazzini_App.Database.Contexts;
-using Cait_Mazzini_App.Database.Repositories.Interfaces;
-using Cait_Mazzini_App.Models;
+﻿using CaitMazziniApp.Database.Contexts;
+using CaitMazziniApp.Database.Repositories.Interfaces;
+using CaitMazziniApp.Models.Core;
+using Microsoft.EntityFrameworkCore;
 
-namespace Cait_Mazzini_App.Database.Repositories.EFCore
+namespace CaitMazziniApp.Database.Repositories.EFCore
 {
     public class EFCoreDistrictRepository : EFCoreGenericRepository<District, int>, IDistrictRepository
     {
@@ -10,9 +11,9 @@ namespace Cait_Mazzini_App.Database.Repositories.EFCore
         {
         }
 
-        public IList<District> GetAllByCity(int cityId)
+        public async Task<IList<District>> GetAllByCity(int cityId)
         {
-            return _dbContext.Set<District>().Where(district => district.City.Id == cityId).ToList();
+            return await _dbContext.Set<District>().Where(district => district.City.Id == cityId).ToListAsync();
         }
     }
 }

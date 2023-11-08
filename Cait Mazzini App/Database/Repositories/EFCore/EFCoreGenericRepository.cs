@@ -1,7 +1,8 @@
-﻿using Cait_Mazzini_App.Database.Contexts;
-using Cait_Mazzini_App.Database.Repositories.Interfaces;
+﻿using CaitMazziniApp.Database.Contexts;
+using CaitMazziniApp.Database.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
-namespace Cait_Mazzini_App.Database.Repositories.EFCore
+namespace CaitMazziniApp.Database.Repositories.EFCore
 {
     public class EFCoreGenericRepository<TEntity, TPrimaryKey> : IGenericRepository<TEntity, TPrimaryKey> 
         where TEntity : class
@@ -12,44 +13,44 @@ namespace Cait_Mazzini_App.Database.Repositories.EFCore
             _dbContext = dbContext;
         }
 
-        public virtual IList<TEntity> All(int? skip = null, int? take = null)
+        public virtual async Task<IList<TEntity>> All(int? skip = null, int? take = null)
         {
             var set = _dbContext.Set<TEntity>();
             if (skip.HasValue && take.HasValue)
             {
-                return set.Skip(skip.Value).Take(take.Value).ToList();
+                return await set.Skip(skip.Value).Take(take.Value).ToListAsync();
             }
             else
             {
-                return set.ToList();
+                return await set.ToListAsync();
             }
         }
 
-        public virtual TEntity? Find(TPrimaryKey id)
+        public virtual async Task<TEntity?> Find(TPrimaryKey id)
         {
-            return _dbContext.Set<TEntity>().Find(id);
+            return await _dbContext.Set<TEntity>().FindAsync(id);
         }
 
-        public virtual void Create(TEntity entity)
+        public virtual async Task Create(TEntity entity)
         {
             _dbContext.Set<TEntity>().Attach(entity);
             _dbContext.Set<TEntity>().Add(entity);
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
         }
 
-        public virtual void Update(TEntity entity)
+        public virtual async Task Update(TEntity entity)
         {
             _dbContext.Set<TEntity>().Attach(entity);
             _dbContext.Set<TEntity>().Update(entity);
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
         }
 
-        public virtual void Delete(TPrimaryKey id)
+        public virtual async Task Delete(TPrimaryKey id)
         {
             var set = _dbContext.Set<TEntity>();
             var entity = set.Find(id);
             set.Remove(entity);
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

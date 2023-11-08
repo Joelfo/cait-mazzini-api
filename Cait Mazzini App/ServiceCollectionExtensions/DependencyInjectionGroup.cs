@@ -1,17 +1,27 @@
-﻿using Cait_Mazzini_App.Database.Repositories.EFCore;
-using Cait_Mazzini_App.Database.Repositories.Interfaces;
+﻿using CaitMazziniApp.Database.Repositories.EFCore;
+using CaitMazziniApp.Database.Repositories.Interfaces;
 
-namespace Cait_Mazzini_App.ServiceCollectionExtensions
+namespace CaitMazziniApp.ServiceCollectionExtensions
 {
     public static class DependencyInjectionGroup
     {
         public static IServiceCollection AddDependencyInjectionGroup(this IServiceCollection services)
         {
-            services.AddScoped(typeof(IGenericRepository<,>), typeof(EFCoreGenericRepository<,>));
-            services.AddScoped<IDistrictRepository, EFCoreDistrictRepository>();
-            services.AddScoped<IVitalSignsMeasurementRepository, EFCoreVitalSignsMeasurementRepository>();
-            services.AddScoped<IFederativeUnityRepository, EFCoreFederativeUnityRepository>();
-            services.AddScoped<IPatientRepository, EFCorePatientRepository>();
+
+            #region Services
+
+            #endregion
+
+            #region Repositories
+                services.AddScoped(typeof(IGenericRepository<,>), typeof(EFCoreGenericRepository<,>));
+                services.AddScoped<IDistrictRepository, EFCoreDistrictRepository>();
+                services.AddScoped<IVitalSignsMeasurementRepository, EFCoreVitalSignsMeasurementRepository>();
+                services.AddScoped<IFederativeUnityRepository, EFCoreFederativeUnityRepository>();
+                services.AddScoped<IPatientRepository, EFCorePatientRepository>();
+                services.AddScoped<ITrackingAppointmentChartRepository, EFCoreTrackingAppointmentChartRerpository>();
+            services.AddScoped<IFirstNurseryAppointmentRepository, EFCoreFirstNurseryAppointmentRepository>();
+            #endregion
+
             return services;
         }
     }

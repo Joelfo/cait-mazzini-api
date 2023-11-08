@@ -1,8 +1,9 @@
-﻿using Cait_Mazzini_App.Database.Contexts;
-using Cait_Mazzini_App.Database.Repositories.Interfaces;
-using Cait_Mazzini_App.Models;
+﻿using CaitMazziniApp.Database.Contexts;
+using CaitMazziniApp.Database.Repositories.Interfaces;
+using CaitMazziniApp.Models.Charts;
+using Microsoft.EntityFrameworkCore;
 
-namespace Cait_Mazzini_App.Database.Repositories.EFCore
+namespace CaitMazziniApp.Database.Repositories.EFCore
 {
     public class EFCoreVitalSignsMeasurementRepository : EFCoreGenericRepository<VitalSignsMeasurement, int>, IVitalSignsMeasurementRepository
     {
@@ -10,11 +11,11 @@ namespace Cait_Mazzini_App.Database.Repositories.EFCore
         {
         }
 
-        public IList<VitalSignsMeasurement> AllByPatient(int patientId)
+        public async Task<IList<VitalSignsMeasurement>> AllByPatient(int patientId)
         {
-            return _dbContext.Set<VitalSignsMeasurement>()
+            return await _dbContext.Set<VitalSignsMeasurement>()
                 .Where(vitalSignsMeasurement => vitalSignsMeasurement.Patient.Id == patientId)
-                .ToList();
+                .ToListAsync();
         }
     }
 }

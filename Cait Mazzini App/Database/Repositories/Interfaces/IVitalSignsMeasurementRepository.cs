@@ -1,9 +1,9 @@
-﻿using Cait_Mazzini_App.Models;
+﻿using CaitMazziniApp.Models.Charts;
 
-namespace Cait_Mazzini_App.Database.Repositories.Interfaces
+namespace CaitMazziniApp.Database.Repositories.Interfaces
 {
     public interface IVitalSignsMeasurementRepository : IGenericRepository<VitalSignsMeasurement, int>
     {
-        public IList<VitalSignsMeasurement> AllByPatient(int patientId);
+        public Task<IList<VitalSignsMeasurement>> AllByPatient(int patientId);
     }
 }

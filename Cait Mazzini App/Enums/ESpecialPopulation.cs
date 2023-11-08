@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.Tracing;
 
-namespace Cait_Mazzini_App.Enums
+namespace CaitMazziniApp.Enums
 {
     public enum ESpecialPopulation
     {

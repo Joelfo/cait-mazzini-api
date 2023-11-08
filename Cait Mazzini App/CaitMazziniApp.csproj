@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>Cait_Mazzini_App</RootNamespace>
+    <RootNamespace>CaitMazziniApp</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,6 +18,12 @@
     </PackageReference>
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Database\EntityTypeConfigurations\NurseryIdentificationInfo\" />
+    <Folder Include="Mapper\Resolvers\" />
+    <Folder Include="Models\NurseryIdentificationInfo\" />
   </ItemGroup>
 
 </Project>

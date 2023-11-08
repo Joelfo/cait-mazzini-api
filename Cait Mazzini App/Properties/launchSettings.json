@@ -4,12 +4,12 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:13728",
-      "sslPort": 44312
+      "applicationUrl": "http://localhost:3000",
+      "sslPort": 3001
     }
   },
   "profiles": {
-    "Cait_Mazzini_App": {
+    "CaitMazziniApp": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

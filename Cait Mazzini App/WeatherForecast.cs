@@ -1,4 +1,4 @@
-namespace Cait_Mazzini_App
+namespace CaitMazziniApp
 {
     public class WeatherForecast
     {

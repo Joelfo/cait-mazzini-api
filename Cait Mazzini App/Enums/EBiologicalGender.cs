@@ -1,4 +1,4 @@
-﻿namespace Cait_Mazzini_App.Enums
+﻿namespace CaitMazziniApp.Enums
 {
     public enum EBiologicalGender
     {

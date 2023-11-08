@@ -1,9 +1,10 @@
-﻿using Cait_Mazzini_App.Database.Contexts;
-using Cait_Mazzini_App.Database.Repositories.Interfaces;
-using Cait_Mazzini_App.Models;
+﻿using CaitMazziniApp.Database.Contexts;
+using CaitMazziniApp.Database.Repositories.Interfaces;
+using CaitMazziniApp.Models.Core;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography.X509Certificates;
 
-namespace Cait_Mazzini_App.Database.Repositories.EFCore
+namespace CaitMazziniApp.Database.Repositories.EFCore
 {
     public class EFCoreFederativeUnityRepository : EFCoreGenericRepository<FederativeUnity, int>, IFederativeUnityRepository 
     {
@@ -11,11 +12,11 @@ namespace Cait_Mazzini_App.Database.Repositories.EFCore
         {
         }
 
-        public IList<FederativeUnity> AllByCountry(int countryId)
+        public async Task<IList<FederativeUnity>> AllByCountry(int countryId)
         {
-            return _dbContext.Set<FederativeUnity>()
+            return await _dbContext.Set<FederativeUnity>()
                 .Where(x => x.Country.Id == countryId)
-                .ToList();
+                .ToListAsync();
         }
     }
 }

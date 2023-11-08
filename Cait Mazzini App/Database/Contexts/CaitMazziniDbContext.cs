@@ -1,8 +1,10 @@
-﻿using Cait_Mazzini_App.Database.EntityTypeConfigurations;
-using Cait_Mazzini_App.Models;
+﻿using CaitMazziniApp.Database.EntityTypeConfigurations;
+using CaitMazziniApp.Models.Charts;
+using CaitMazziniApp.Models.Core;
+using CaitMazziniApp.Models.PatientClinicalHistory;
 using Microsoft.EntityFrameworkCore;
 
-namespace Cait_Mazzini_App.Database.Contexts
+namespace CaitMazziniApp.Database.Contexts
 {
     public class CaitMazziniDbContext : DbContext
     {

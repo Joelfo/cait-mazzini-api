@@ -1,4 +1,4 @@
-﻿namespace Cait_Mazzini_App.Models.Base
+﻿namespace CaitMazziniApp.Models.Base
 {
     public class BaseModel
     {

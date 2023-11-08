@@ -1,9 +1,9 @@
-﻿using Cait_Mazzini_App.Database.Contexts;
-using Cait_Mazzini_App.Database.Repositories.Interfaces;
-using Cait_Mazzini_App.Models;
+﻿using CaitMazziniApp.Database.Contexts;
+using CaitMazziniApp.Database.Repositories.Interfaces;
+using CaitMazziniApp.Models.Core;
 using Microsoft.EntityFrameworkCore;
 
-namespace Cait_Mazzini_App.Database.Repositories.EFCore
+namespace CaitMazziniApp.Database.Repositories.EFCore
 {
     public class EFCorePatientRepository : EFCoreGenericRepository<Patient, int>, IPatientRepository
     {
@@ -12,11 +12,11 @@ namespace Cait_Mazzini_App.Database.Repositories.EFCore
             
         }
 
-        public IList<Patient> AllByName(string name)
+        public async Task<IList<Patient>> AllByName(string name)
         {
-            return _dbContext.Set<Patient>()
+            return await _dbContext.Set<Patient>()
                 .Where(x => EF.Functions.Like(x.Name, $"%{name}%"))
-                .ToList();
+                .ToListAsync();
         }
     }
 }
