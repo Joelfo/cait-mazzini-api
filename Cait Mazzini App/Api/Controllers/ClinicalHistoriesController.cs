@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using CaitMazziniApp.Api.Controllers.Generic;
 using CaitMazziniApp.Api.DTOs.PatientClinicalHistory;
 using CaitMazziniApp.Api.ViewModels.PatientClinicalHistory;
-using CaitMazziniApp.Controllers;
 using CaitMazziniApp.Database.Repositories.Interfaces;
 using CaitMazziniApp.Models.PatientClinicalHistory;
 using Microsoft.AspNetCore.Mvc;

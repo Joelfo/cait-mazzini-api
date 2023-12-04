@@ -8,8 +8,7 @@ namespace CaitMazziniApp.Database.EntityTypeConfigurations.FirstAppointments
     {
         public void Configure(EntityTypeBuilder<FirstAppointment> builder)
         {
-            builder
-                .UseTpcMappingStrategy();
+
         }
     }
 }

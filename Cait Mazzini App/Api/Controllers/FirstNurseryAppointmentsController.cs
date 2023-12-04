@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using CaitMazziniApp.Api.Controllers.Generic;
 using CaitMazziniApp.Api.DTOs.FirstAppointments;
 using CaitMazziniApp.Api.ViewModels.FirstAppointments;
-using CaitMazziniApp.Controllers;
 using CaitMazziniApp.Database.Repositories.Interfaces;
 using CaitMazziniApp.Models.FirstAppointments;
 using Microsoft.AspNetCore.Mvc;

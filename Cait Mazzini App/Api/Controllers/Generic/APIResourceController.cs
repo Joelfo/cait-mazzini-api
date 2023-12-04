@@ -3,16 +3,18 @@ using CaitMazziniApp.Database.Contexts;
 using CaitMazziniApp.Database.Repositories.Interfaces;
 using CaitMazziniApp.Models.Base;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Security.Cryptography;
 
-namespace CaitMazziniApp.Controllers
+namespace CaitMazziniApp.Api.Controllers.Generic
 {
     [ApiController]
     [Route("[controller]")]
     public abstract class APIResourceController<TDto, TViewModel, TEntity, TRepository> : ControllerBase
-        where TEntity : BaseModel
+        where TEntity : class, IId, new()
         where TDto : class
+        where TViewModel: class
         where TRepository : IGenericRepository<TEntity, int>
     {
         protected readonly TRepository _repository;

@@ -2,9 +2,10 @@
 {
     public class BiopsyExam : ComplementaryExam
     {
-        public Boolean PositiveResult { get; set; }
 
-        public string Tissue { get; set; }
+        public Boolean IsPositiveResult { get; set; }
+
+        public string AnalyzedTissue { get; set; }
 
         public string Result { get; set; }
     }

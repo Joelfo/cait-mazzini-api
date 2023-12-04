@@ -2,6 +2,6 @@
 {
     public class PCRExam : ComplementaryExam
     {
-        public Boolean Positive { get; set; }
+        public Boolean IsPositiveResult { get; set; }
     }
 }

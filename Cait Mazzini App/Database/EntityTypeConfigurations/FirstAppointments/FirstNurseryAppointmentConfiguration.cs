@@ -9,7 +9,6 @@ namespace CaitMazziniApp.Database.EntityTypeConfigurations.FirstAppointments
         public void Configure(EntityTypeBuilder<FirstNurseryAppointment> builder)
         {
             builder
-                .UseTpcMappingStrategy()
                 .ToTable("first_nursery_appointment");
         }
     }

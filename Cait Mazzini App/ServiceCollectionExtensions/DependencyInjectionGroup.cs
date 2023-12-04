@@ -19,7 +19,8 @@ namespace CaitMazziniApp.ServiceCollectionExtensions
                 services.AddScoped<IFederativeUnityRepository, EFCoreFederativeUnityRepository>();
                 services.AddScoped<IPatientRepository, EFCorePatientRepository>();
                 services.AddScoped<ITrackingAppointmentChartRepository, EFCoreTrackingAppointmentChartRerpository>();
-            services.AddScoped<IFirstNurseryAppointmentRepository, EFCoreFirstNurseryAppointmentRepository>();
+                services.AddScoped<IFirstNurseryAppointmentRepository, EFCoreFirstNurseryAppointmentRepository>();
+                services.AddScoped(typeof(IComplementaryExamRepository<>), typeof(EFCoreComplementaryExamRepository<>));
             #endregion
 
             return services;

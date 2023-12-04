@@ -1,12 +1,15 @@
 ﻿using CaitMazziniApp.Enums;
+using CaitMazziniApp.Mapper.Profiles.Exams;
 using CaitMazziniApp.Models.Base;
 using CaitMazziniApp.Models.Core;
 
 namespace CaitMazziniApp.Models.Exams
 {
-    public class ComplementaryExam : BaseModel
+    public class ComplementaryExam : IId
     {
-        public string FilePath { get; set; } = string.Empty;
+        public int Id { get; set; }
+
+        public virtual IList<ExamFile> ExamFiles { get; set; } = new List<ExamFile>();
 
         public DateOnly Date { get; set; }
 

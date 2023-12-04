@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace CaitMazziniApp.Database.Repositories.EFCore
 {
     public class EFCoreGenericRepository<TEntity, TPrimaryKey> : IGenericRepository<TEntity, TPrimaryKey> 
-        where TEntity : class
+        where TEntity : class, new()
     {
         protected readonly CaitMazziniDbContext _dbContext;
         public EFCoreGenericRepository(CaitMazziniDbContext dbContext)

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using CaitMazziniApp.Api.Controllers.Generic;
 using CaitMazziniApp.Api.DTOs.PatientLifeHabits;
 using CaitMazziniApp.Api.ViewModels.PatientLifeHabits;
-using CaitMazziniApp.Controllers;
 using CaitMazziniApp.Database.Repositories.Interfaces;
 using CaitMazziniApp.Models.PatientLifeHabits;
 using Microsoft.AspNetCore.Mvc;
