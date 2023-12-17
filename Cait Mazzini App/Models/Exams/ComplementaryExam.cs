@@ -15,6 +15,6 @@ namespace CaitMazziniApp.Models.Exams
 
         public virtual Patient Patient { get; set; }
 
-        public string Observations { get; set; }
+        public string? Observations { get; set; }
     }
 }

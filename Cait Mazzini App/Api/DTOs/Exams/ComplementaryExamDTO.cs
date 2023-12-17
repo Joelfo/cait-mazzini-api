@@ -11,7 +11,6 @@ namespace CaitMazziniApp.Api.DTOs.Exams
         [Required]
         public virtual int patientId { get; set; }
 
-        [Required]
-        public string observations { get; set; }
+        public string? observations { get; set; }
     }
 }
