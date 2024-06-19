@@ -1,6 +1,6 @@
 ﻿namespace CaitMazziniApp.ViewModels
 {
-    public class CountryViewModel
+    public class CityViewModel
     {
         public int id { get; set; }
 

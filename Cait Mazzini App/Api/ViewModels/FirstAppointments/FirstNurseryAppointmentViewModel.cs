@@ -2,8 +2,7 @@
 {
     public class FirstNurseryAppointmentViewModel : FirstAppointmentViewModel
     {
-        public string NurseryConduct { get; set; }
 
-        public string NurseryDiagnosis { get; set; }
+        public string NurseryDiagnostic { get; set; }
     }
 }

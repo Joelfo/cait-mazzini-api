@@ -52,12 +52,12 @@ namespace CaitMazziniApp.Api.DTOs.PatientLifeHabits
         [Required]
         public bool formerSmoker { get; set; }
 
-        public string timeWithoutSmoking { get; set; }
+        public string timeWithoutSmoking { get; set; } = "";
 
         [Required]
         public bool usesIllicitDrugs { get; set; }
 
-        public string illicitDrugsUsingObs { get; set; }
+        public string illicitDrugsUsingObs { get; set; } = "";
 
         [Required]
         public bool hasSatisfactorySleepingTime { get; set; }
@@ -65,13 +65,15 @@ namespace CaitMazziniApp.Api.DTOs.PatientLifeHabits
         [Required]
         public int sleepingHoursPerNight { get; set; }
 
-        public string sleepingTimeObs { get; set; }
+        public string sleepingTimeObs { get; set; } = "";
 
         public IList<int> physicalActivityIds { get; set; } = new List<int>();
 
-        public string physicalActivitiesObservation { get; set; }
+        public string physicalActivitiesObservation { get; set; } = "";
 
-        public string leisureObservation { get; set; }
+        public int physicalActivityTimesPerWeek { get; set; }
+
+        public string leisureObservation { get; set; } = "";
 
         public IList<int> contraceptiveMethodIds { get; set; } = new List<int>();
 

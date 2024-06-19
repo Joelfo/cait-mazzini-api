@@ -1,4 +1,5 @@
-﻿using CaitMazziniApp.Database.Repositories.EFCore;
+﻿using CaitMazziniApp.Api.Services;
+using CaitMazziniApp.Database.Repositories.EFCore;
 using CaitMazziniApp.Database.Repositories.Interfaces;
 
 namespace CaitMazziniApp.ServiceCollectionExtensions
@@ -9,7 +10,8 @@ namespace CaitMazziniApp.ServiceCollectionExtensions
         {
 
             #region Services
-
+            services.AddScoped<EncryptionService>();
+            services.AddScoped<FileService>();
             #endregion
 
             #region Repositories
@@ -18,9 +20,13 @@ namespace CaitMazziniApp.ServiceCollectionExtensions
                 services.AddScoped<IVitalSignsMeasurementRepository, EFCoreVitalSignsMeasurementRepository>();
                 services.AddScoped<IFederativeUnityRepository, EFCoreFederativeUnityRepository>();
                 services.AddScoped<IPatientRepository, EFCorePatientRepository>();
-                services.AddScoped<ITrackingAppointmentChartRepository, EFCoreTrackingAppointmentChartRerpository>();
+                services.AddScoped<ITrackingAppointmentChartRepository, EFCoreTrackingAppointmentChartRepository>();
                 services.AddScoped<IFirstNurseryAppointmentRepository, EFCoreFirstNurseryAppointmentRepository>();
                 services.AddScoped(typeof(IComplementaryExamRepository<>), typeof(EFCoreComplementaryExamRepository<>));
+                services.AddScoped<IScannedChartMetadataRepository, EFCoreScannedChartMetadataRepository>();
+                services.AddScoped<IUserRepository, EFCoreUserRepository>();
+                services.AddScoped<IPhysicalExamRepository, EFCorePhysicalExamRepository>();
+                services.AddScoped<IFirstMedicalAppointmentChartRepository, EFCoreFirstMedicalAppointmentChartRepository>();
             #endregion
 
             return services;

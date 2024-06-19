@@ -8,6 +8,7 @@ namespace CaitMazziniApp.Database.EntityTypeConfigurations.Core
     {
         public void Configure(EntityTypeBuilder<Patient> builder)
         {
+            builder.ToTable("patients");
         }
     }
 }

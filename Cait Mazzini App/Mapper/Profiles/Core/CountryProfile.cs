@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CaitMazziniApp.Api.ViewModels.Core;
 using CaitMazziniApp.DTOs;
 using CaitMazziniApp.Models.Core;
 using CaitMazziniApp.ViewModels;

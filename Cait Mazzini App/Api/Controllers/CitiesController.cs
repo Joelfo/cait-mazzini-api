@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CaitMazziniApp.Controllers
 {
     [Route("[controller]")]
-    public class CitiesController : APIResourceController<CityDTO, CountryViewModel, City, IGenericRepository<City, int>>
+    public class CitiesController : APIResourceController<CityDTO, CityViewModel, City, IGenericRepository<City, int>>
     {
         public CitiesController(IGenericRepository<City, int> genericRepository, IMapper mapper) : base(genericRepository, mapper)
         { 

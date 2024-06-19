@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CaitMazziniApp.Api.Controllers.Generic;
+using CaitMazziniApp.Api.ViewModels.Core;
 using CaitMazziniApp.Database.Repositories.Interfaces;
 using CaitMazziniApp.DTOs;
 using CaitMazziniApp.Models.Core;

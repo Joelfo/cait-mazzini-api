@@ -21,5 +21,7 @@ namespace CaitMazziniApp.ViewModels
         public decimal mHeight { get; set; }
 
         public int patientId { get; set; }
+
+        public int? mgdlHgt { get; set; }
     }
 }

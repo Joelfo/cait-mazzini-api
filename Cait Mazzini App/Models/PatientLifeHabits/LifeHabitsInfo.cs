@@ -1,11 +1,14 @@
 ﻿using CaitMazziniApp.Enums;
 using CaitMazziniApp.Models.Base;
 using CaitMazziniApp.Models.Core;
+using CaitMazziniApp.Models.Logging;
 
 namespace CaitMazziniApp.Models.PatientLifeHabits
 {
-    public class LifeHabitsInfo : BaseModel
+    public class LifeHabitsInfo : IId
     {
+        public int Id { get; set; }
+
         public int PatientId { get; set; }
 
         public virtual Patient Patient { get; set; }
@@ -38,23 +41,25 @@ namespace CaitMazziniApp.Models.PatientLifeHabits
 
         public bool FormerSmoker { get; set; }
 
-        public string TimeWithoutSmoking { get; set; }
+        public string TimeWithoutSmoking { get; set; } = "";
 
         public bool UsesIllicitDrugs { get; set; }
 
-        public string IllicitDrugsUsingObs { get; set; }
+        public string IllicitDrugsUsingObs { get; set; } = "";
 
         public bool HasSatisfactorySleepingTime { get; set; }
 
         public int SleepingHoursPerNight { get; set; }
 
-        public string SleepingTimeObs { get; set; }
+        public string SleepingTimeObs { get; set; } = "";
 
         public virtual IList<PhysicalActivity> PhysicalActivities { get; set; } = new List<PhysicalActivity>();
 
-        public string PhysicalActivitiesObservation { get; set; }
+        public virtual int PhysicalActivityTimesPerWeek { get; set; } 
 
-        public string LeisureObservation { get; set; }
+        public string PhysicalActivitiesObservation { get; set; } = "";
+
+        public string LeisureObservation { get; set; } = "";
 
         public virtual IList<ContraceptiveMethod> ContraceptiveMethods { get; set; } = new List<ContraceptiveMethod>();
 
@@ -65,6 +70,8 @@ namespace CaitMazziniApp.Models.PatientLifeHabits
         public bool HasPrEP { get; set; }
 
         public bool HasPEP { get; set; }
+
+        //public IList<UserEditLifeHabitsInfo> Editions { get; set; }
 
     }
 }

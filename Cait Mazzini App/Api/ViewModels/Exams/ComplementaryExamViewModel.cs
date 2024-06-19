@@ -11,5 +11,7 @@ namespace CaitMazziniApp.Api.ViewModels.Exams
         public virtual int patientId { get; set; }
 
         public string observations { get; set; } = string.Empty;
+
+        public IList<ExamFileViewModel> examFiles { get; set; } = new List<ExamFileViewModel>();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CaitMazziniApp.Api.Controllers.Generic;
+using CaitMazziniApp.Api.DTOs.PatientClinicalHistory;
 using CaitMazziniApp.Api.DTOs.PatientLifeHabits;
 using CaitMazziniApp.Api.ViewModels.PatientLifeHabits;
 using CaitMazziniApp.Database.Repositories.Interfaces;
@@ -29,6 +30,22 @@ namespace CaitMazziniApp.Api.Controllers
             var physicalActivities = lifeHabitsInfo.PhysicalActivities;
 
             var viewModels = _mapper.Map<IList<PhysicalActivity>, IList<PhysicalActivityViewModel>>(physicalActivities);
+            return Ok(viewModels);
+        }
+
+        [HttpGet("{id}/ContraceptiveMethods")]
+        public async Task<IActionResult> GetContraceptiveMethods(int id)
+        {
+            var lifeHabitsInfo = await _repository.Find(id);
+
+            if (lifeHabitsInfo == null)
+            {
+                return NotFound("LifeHabitsInfo not found");
+            }
+
+            var contraceptiveMethods = lifeHabitsInfo.ContraceptiveMethods;
+
+            var viewModels = _mapper.Map<IList<ContraceptiveMethod>, IList<ContraceptiveMethodViewModel>>(contraceptiveMethods);
             return Ok(viewModels);
         }
     }

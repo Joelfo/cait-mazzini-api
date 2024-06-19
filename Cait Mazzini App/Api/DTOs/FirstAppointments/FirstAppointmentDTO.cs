@@ -8,12 +8,17 @@ namespace CaitMazziniApp.Api.DTOs.FirstAppointments
         [Required]
         public string mainIssues { get; set; }
 
-        [Required]
-        public string drugsInUse { get; set; }
+        public string? drugsInUse { get; set; }
 
         public string? complementaryInfo { get; set; }
 
         [Required]
         public int patientId { get; set; }
+
+        [Required]
+        public string conduct { get; set; }
+
+        [Required]
+        public int creatorId { get; set; }
     }
 }

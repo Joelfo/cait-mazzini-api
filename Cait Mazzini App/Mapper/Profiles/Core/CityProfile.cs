@@ -9,8 +9,8 @@ namespace CaitMazziniApp.Mapper.Profiles.Core
     {
         public CityProfile()
         {
-            CreateMap<City, CountryViewModel>();
-            CreateMap<CityDTO, CountryViewModel>();
+            CreateMap<City, CityViewModel>();
+            CreateMap<CityDTO, City>();
         }
     }
 }

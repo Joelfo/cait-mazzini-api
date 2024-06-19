@@ -9,5 +9,7 @@ namespace CaitMazziniApp.Database.Repositories.Interfaces
         Task<IList<TrackingAppointmentChart>> AllByPatientAndType(int patientId, ETrackingAppointmentChartType type, int? skip, int? take);
 
         Task<IList<TrackingAppointmentChartBasicInfo>> AllBasicInfoByPatientAndType(int patientId, ETrackingAppointmentChartType type, int? skip, int? take);
+    
+        Task<IList<TrackingAppointmentChartBasicInfo>> AllBasicInfoByPatient(int patientId, int? skip, int? take);
     }
 }

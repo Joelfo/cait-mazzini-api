@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using CaitMazziniApp.DTOs;
+using CaitMazziniApp.Api.DTOs.Core.Patient;
+using CaitMazziniApp.Api.ViewModels.Core.Patient;
 using CaitMazziniApp.Models.Core;
-using CaitMazziniApp.ViewModels;
 
 namespace CaitMazziniApp.Mapper.Profiles.Core
 {
@@ -10,23 +10,36 @@ namespace CaitMazziniApp.Mapper.Profiles.Core
         public PatientProfile()
         {
             CreateMap<Patient, PatientViewModel>()
-               .ForMember(patientDTO => patientDTO.birthCountryId, opt => opt.MapFrom(patient => patient.BirthCountry.Id))
-               .ForMember(patientDTO => patientDTO.districtId, opt => opt.MapFrom(patient => patient.District.Id))
+               .ForMember(patientDTO => patientDTO.districtId, opt => opt.MapFrom(patient => (patient.District != null ? patient.District.Id : 0)))
                .ForMember(patientDTO => patientDTO.birthplaceId, opt => opt.MapFrom(patient => patient.Birthplace.Id))
-               .ForMember(patientDTO => patientDTO.healthUnitytId, opt =>
+               .ForMember(patientDTO => patientDTO.healthUnityId, opt =>
                {
                    opt.PreCondition(patient => patient.HealthUnity != null);
                    opt.MapFrom(patient => patient.HealthUnity.Id);
                });
+
             CreateMap<PatientDTO, Patient>()
-                .ForPath(patient => patient.BirthCountry.Id, opt => opt.MapFrom(dto => dto.birthCountryId))
                 .ForPath(patient => patient.District.Id, opt => opt.MapFrom(dto => dto.districtId))
                 .ForPath(patient => patient.Birthplace.Id, opt => opt.MapFrom(dto => dto.birthplaceId))
                 .ForMember(patient => patient.HealthUnity, opt =>
                 {
-                    opt.PreCondition(patientDTO => patientDTO.healthUnitytId != null);
-                    opt.MapFrom(patientDTO => new HealthUnity() { Id = patientDTO.healthUnitytId ?? 0 });
+                    opt.PreCondition(patientDTO => patientDTO.healthUnityId != null);
+                    opt.MapFrom(patientDTO => new HealthUnity() { Id = patientDTO.healthUnityId ?? 0 });
                 });
+
+            /*CreateMap<Patient, PatientBasicInfoViewModel>()
+                .ForAllMembers(opt => opt.MapFrom(entity => new PatientBasicInfoViewModel()
+                {
+                    hasClinicalHistory = entity.ClinicalHistory != null,
+                    hasLifeHabitsInfo = entity.LifeHabitsInfo != null,
+                    hasScannedChart = entity.ScannedChartMetadata != null,
+                }));*/
+
+            CreateMap<PatientBasicInfo, PatientBasicInfoViewModel>();
+
+            CreateMap<PatientRelationshipsInfo, PatientRelationshipsInfoViewModel>();
+
+            CreateMap<Patient, PatientBasicInfoViewModel>();
         }
     }
 }

@@ -15,6 +15,7 @@ namespace CaitMazziniApp.Mapper.Profiles.Exams
                 .IncludeAllDerived();
             CreateMap<ComplementaryExamDTO, ComplementaryExam>()
                 .ForMember(model => model.Patient, opt => opt.MapFrom(dto => new Patient { Id = dto.patientId }))
+                .ForMember(model => model.Date, opt => opt.MapFrom(dto => DateOnly.Parse(dto.date)))
                 .IncludeAllDerived();
         }
     }

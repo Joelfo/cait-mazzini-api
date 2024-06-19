@@ -6,7 +6,7 @@ namespace CaitMazziniApp.Api.DTOs.Exams
     {
 
         [Required]
-        public DateOnly date { get; set; }
+        public string date { get; set; }
 
         [Required]
         public virtual int patientId { get; set; }

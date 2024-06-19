@@ -2,6 +2,8 @@
 {
     public class LifeHabitsInfoVIewModel
     {
+        public int id { get; set; }
+
         public int patientId { get; set; }
 
         public int mealsPerDay { get; set; }
@@ -45,6 +47,8 @@
         public string sleepingTimeObs { get; set; }
 
         public IList<int> physicalActivityIds { get; set; } = new List<int>();
+
+        public int physicalActivityTimesPerWeek { get; set; } = 0;
 
         public string physicalActivitiesObservation { get; set; }
 

@@ -1,13 +1,16 @@
 ﻿using CaitMazziniApp.Enums;
 using CaitMazziniApp.Models.Base;
+using CaitMazziniApp.Models.Charts;
 using CaitMazziniApp.Models.PatientClinicalHistory;
 using CaitMazziniApp.Models.PatientLifeHabits;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CaitMazziniApp.Models.Core
 {
-    public class Patient : BaseModel
+    public class Patient : IId
     {
+        public int Id { get; set; }
+
         public string Name { get; set; } = string.Empty;
 
         public string RecordCode { get; set; } = string.Empty;
@@ -52,12 +55,12 @@ namespace CaitMazziniApp.Models.Core
 
         public virtual FederativeUnity Birthplace { get; set; } = null!;
 
-        public virtual Country BirthCountry { get; set; } = null!;
-
         public virtual HealthUnity? HealthUnity { get; set; }
 
         public virtual ClinicalHistory? ClinicalHistory { get; set; }
     
         public virtual LifeHabitsInfo? LifeHabitsInfo { get; set; }
+
+        public virtual ScannedChartMetadata? ScannedChartMetadata { get; set; }
     }
 }

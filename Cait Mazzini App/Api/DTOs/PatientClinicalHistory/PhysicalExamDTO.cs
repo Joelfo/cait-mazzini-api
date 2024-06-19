@@ -1,4 +1,5 @@
-﻿using CaitMazziniApp.Models.Core;
+﻿using CaitMazziniApp.Enums;
+using CaitMazziniApp.Models.Core;
 using System.ComponentModel.DataAnnotations;
 
 namespace CaitMazziniApp.Api.DTOs.PatientClinicalHistory
@@ -26,5 +27,11 @@ namespace CaitMazziniApp.Api.DTOs.PatientClinicalHistory
 
         [Required]
         public int patientId { get; set; }
+
+        [Required]
+        public ETrackingAppointmentChartType type { get; set; }
+
+        [Required]
+        public DateOnly date { get; set; }
     }
 }

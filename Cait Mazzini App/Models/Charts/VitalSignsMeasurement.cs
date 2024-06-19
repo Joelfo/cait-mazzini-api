@@ -3,8 +3,10 @@ using CaitMazziniApp.Models.Core;
 
 namespace CaitMazziniApp.Models.Charts
 {
-    public class VitalSignsMeasurement : BaseModel
+    public class VitalSignsMeasurement : IId
     {
+        public int Id { get; set; }
+
         public DateTime MeasurementDateTime { get; set; }
 
         public string MmhgPa { get; set; }
@@ -22,5 +24,7 @@ namespace CaitMazziniApp.Models.Charts
         public decimal MHeight { get; set; }
 
         public virtual Patient Patient { get; set; } = null!;
+
+        public int? MgdlHgt { get; set; }
     }
 }

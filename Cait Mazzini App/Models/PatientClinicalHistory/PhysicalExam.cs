@@ -1,10 +1,13 @@
-﻿using CaitMazziniApp.Models.Base;
+﻿using CaitMazziniApp.Enums;
+using CaitMazziniApp.Models.Base;
 using CaitMazziniApp.Models.Core;
 
 namespace CaitMazziniApp.Models.PatientClinicalHistory
 {
-    public class PhysicalExam : BaseModel
+    public class PhysicalExam : IId
     {
+        public int Id { get; set; }
+
         public string GeneralAspect { get; set; } = String.Empty;
 
         public string HygieneConditionsObs { get; set; } = String.Empty;
@@ -26,5 +29,11 @@ namespace CaitMazziniApp.Models.PatientClinicalHistory
         public virtual Patient Patient { get; set; }
 
         public int PatientId { get; set; }
+
+        public ETrackingAppointmentChartType Type { get; set; }
+
+        public DateOnly Date { get; set; } = new DateOnly();
+
+        public virtual User Creator { get; set; }
     }
 }

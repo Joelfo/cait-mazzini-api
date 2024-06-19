@@ -3,8 +3,10 @@ using CaitMazziniApp.Models.Core;
 
 namespace CaitMazziniApp.Models.PatientClinicalHistory
 {
-    public class ClinicalHistory : BaseModel
+    public class ClinicalHistory : IId
     {
+        public int Id { get; set; }
+
         public virtual IList<Desease> PreviousDeseases { get; set; } = new List<Desease>();
 
         public string OtherPreviousDeseases { get; set; }

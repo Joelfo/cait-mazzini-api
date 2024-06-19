@@ -6,5 +6,14 @@ namespace CaitMazziniApp.Api.DTOs.Exams
     {
         [Required]
         public Boolean isPositiveResult { get; set; }
+
+        [Required]
+        public string material { get; set; }
+
+        [Required]
+        public string kit { get; set; }
+
+        [Required]
+        public string method { get; set; }
     }
 }

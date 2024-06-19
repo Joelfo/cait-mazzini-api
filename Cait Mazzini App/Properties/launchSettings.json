@@ -17,7 +17,10 @@
       "applicationUrl": "https://localhost:7293;http://localhost:5057",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "EXAMS_FILES_DIRECTORY": ""
+        "EXAMS_FILES_DIRECTORY": "C:\\Users\\joell\\Projetos\\files-test-directory",
+        "SCANNED_CHART_FILES_DIRECTORY": "C:\\Users\\joell\\Projetos\\files-test-directory",
+        "EXAM_FILES_DIRECTORY": "C:\\Users\\joell\\Projetos\\files-test-directory",
+        "ENCRYPTION_KEY": "E5jV1i7poSDzTNWgPOrBm90t21oPHQYM33lVSSCqRWI="
       }
     },
     "IIS Express": {

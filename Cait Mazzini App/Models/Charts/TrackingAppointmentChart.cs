@@ -4,8 +4,10 @@ using CaitMazziniApp.Models.Core;
 
 namespace CaitMazziniApp.Models.Charts
 {
-    public class TrackingAppointmentChart : BaseModel
+    public class TrackingAppointmentChart : IId
     {
+        public int Id { get; set; }
+
         public ETrackingAppointmentChartType Type { get; set; }
 
         public string Schema { get; set; } = string.Empty;

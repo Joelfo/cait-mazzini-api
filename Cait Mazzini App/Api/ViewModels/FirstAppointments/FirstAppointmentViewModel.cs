@@ -9,5 +9,7 @@
         public string complementaryInfo { get; set; } = string.Empty;
 
         public string drugsInUse { get; set; }
+
+        public int creatorId { get; set; }
     }
 }

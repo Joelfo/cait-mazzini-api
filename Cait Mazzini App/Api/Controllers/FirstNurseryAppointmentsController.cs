@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CaitMazziniApp.Api.Controllers
 {
-    public class FirstNurseryAppointmentsController : APIResourceController<FirstNurseryAppointmentDTO, FirstNurseryAppointmentViewModel, FirstNurseryAppointment, IFirstNurseryAppointmentRepository>
+    public class FirstNurseryAppointmentsController : APIResourceController<FirstNurseryAppointmentDTO, FirstNurseryAppointmentViewModel, FirstNurseryAppointmentChart, IFirstNurseryAppointmentRepository>
     {
         public FirstNurseryAppointmentsController(IFirstNurseryAppointmentRepository repository, IMapper mapper) : base(repository, mapper)
         {

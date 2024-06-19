@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CaitMazziniApp.Database.EntityTypeConfigurations.FirstAppointments
 {
-    public class FirstNurseryAppointmentConfiguration : IEntityTypeConfiguration<FirstNurseryAppointment>
+    public class FirstNurseryAppointmentConfiguration : IEntityTypeConfiguration<FirstNurseryAppointmentChart>
     {
-        public void Configure(EntityTypeBuilder<FirstNurseryAppointment> builder)
+        public void Configure(EntityTypeBuilder<FirstNurseryAppointmentChart> builder)
         {
             builder
-                .ToTable("first_nursery_appointment");
+                .ToTable("first_nursery_appointment_charts");
         }
     }
 }

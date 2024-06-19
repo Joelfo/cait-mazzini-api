@@ -8,5 +8,8 @@ namespace CaitMazziniApp.Api.DTOs.Exams
 
         [Required]
         public IFormFile file { get; set; } = null!;
+
+        [Required]
+        public int complementaryExamId;
     }
 }

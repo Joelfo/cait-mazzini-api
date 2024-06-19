@@ -1,4 +1,6 @@
-﻿namespace CaitMazziniApp.Api.ViewModels.PatientClinicalHistory
+﻿using CaitMazziniApp.Enums;
+
+namespace CaitMazziniApp.Api.ViewModels.PatientClinicalHistory
 {
     public class PhysicalExamViewModel
     {
@@ -23,5 +25,9 @@
         public string skinAndMucousObs { get; set; } = String.Empty;
 
         public int patientId { get; set; }
+
+        public ETrackingAppointmentChartType type { get; set; }
+
+        public DateOnly date { get; set; }
     }
 }

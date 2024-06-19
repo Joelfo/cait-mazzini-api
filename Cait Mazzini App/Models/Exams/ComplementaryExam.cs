@@ -9,7 +9,7 @@ namespace CaitMazziniApp.Models.Exams
     {
         public int Id { get; set; }
 
-        public virtual IList<ExamFile> ExamFiles { get; set; } = new List<ExamFile>();
+        public virtual IList<ExamFileMetadata> ExamFiles { get; set; } = new List<ExamFileMetadata>();
 
         public DateOnly Date { get; set; }
 

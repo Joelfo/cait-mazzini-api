@@ -34,7 +34,7 @@ namespace CaitMazziniApp.Database.Repositories.EFCore
         public virtual async Task Create(TEntity entity)
         {
             _dbContext.Set<TEntity>().Attach(entity);
-            _dbContext.Set<TEntity>().Add(entity);
+            await _dbContext.Set<TEntity>().AddAsync(entity);
             await _dbContext.SaveChangesAsync();
         }
 

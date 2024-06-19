@@ -2,8 +2,8 @@
 
 namespace CaitMazziniApp.Database.Repositories.Interfaces
 {
-    public interface IFirstNurseryAppointmentRepository : IGenericRepository<FirstNurseryAppointment, int>
+    public interface IFirstNurseryAppointmentRepository : IGenericRepository<FirstNurseryAppointmentChart, int>
     {
-        public Task<FirstNurseryAppointment> GetByPatient(int patientId);
+        public Task<FirstNurseryAppointmentChart> GetByPatient(int patientId);
     }
 }

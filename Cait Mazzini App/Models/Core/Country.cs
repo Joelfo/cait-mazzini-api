@@ -2,10 +2,10 @@
 
 namespace CaitMazziniApp.Models.Core
 {
-    public class Country : BaseModel
+    public class Country : IId
     {
-        public string Name { get; set; } = string.Empty;
+        public int Id { get; set; }
 
-        public virtual ICollection<Patient> Patients { get; set; } = new List<Patient>();
+        public string Name { get; set; } = string.Empty;
     }
 }

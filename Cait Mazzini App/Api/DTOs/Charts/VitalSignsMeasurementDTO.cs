@@ -30,5 +30,7 @@ namespace CaitMazziniApp.DTOs
 
         [Required]
         public int patientId { get; set; }
+
+        public int? mgdlHgt { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using CaitMazziniApp.Database.Contexts;
 using CaitMazziniApp.Database.Repositories.Interfaces;
 using CaitMazziniApp.Models.Base;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
@@ -21,13 +22,13 @@ namespace CaitMazziniApp.Api.Controllers.Generic
         protected readonly IMapper _mapper;
 
         public APIResourceController(TRepository repository, IMapper mapper)
-        {
+        { 
             _repository = repository;
             _mapper = mapper;
         }
 
         [HttpGet]
-        public virtual async Task<IActionResult> Áll([FromQuery] int? skip, [FromQuery] int? take)
+        public virtual async Task<IActionResult> All([FromQuery] int? skip, [FromQuery] int? take)
         {
             IList<TEntity> entities;
             entities = await _repository.All(skip, take);

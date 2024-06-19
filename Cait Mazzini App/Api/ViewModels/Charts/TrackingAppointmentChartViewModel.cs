@@ -16,5 +16,9 @@ namespace CaitMazziniApp.ViewModels
         public DateOnly date { get; set; }
 
         public int patientId { get; set; }
+
+        public int id { get; set; }
+
+        public int creatorId { get; set; }
     }
 }

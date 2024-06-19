@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CaitMazziniApp.Database.EntityTypeConfigurations.Exams
 {
-    public class ExamFileConfiguration : IEntityTypeConfiguration<ExamFile>
+    public class ExamFileConfiguration : IEntityTypeConfiguration<ExamFileMetadata>
     {
-        public void Configure(EntityTypeBuilder<ExamFile> builder)
+        public void Configure(EntityTypeBuilder<ExamFileMetadata> builder)
         {
             builder.ToTable("exam_files");
             builder.Property(x => x.FilePath).HasColumnName("file_path");

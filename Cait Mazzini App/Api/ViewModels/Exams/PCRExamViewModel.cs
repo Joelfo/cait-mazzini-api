@@ -8,5 +8,11 @@ namespace CaitMazziniApp.Api.ViewModels.Exams
         {
             get; set;
         }
+
+        public string material { get; set; }
+
+        public string kit { get; set; }
+
+        public string method { get; set; }
     }
 }

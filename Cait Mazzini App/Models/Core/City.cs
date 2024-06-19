@@ -2,8 +2,10 @@
 
 namespace CaitMazziniApp.Models.Core
 {
-    public class City : BaseModel
+    public class City : IId
     {
+        public int Id { get; set; }
+
         public string Name { get; set; } = string.Empty;
     }
 }

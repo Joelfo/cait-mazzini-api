@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CaitMazziniApp.Database.Repositories.EFCore
 {
-    public class EFCoreFirstNurseryAppointmentRepository : EFCoreGenericRepository<FirstNurseryAppointment, int>, IFirstNurseryAppointmentRepository
+    public class EFCoreFirstNurseryAppointmentRepository : EFCoreGenericRepository<FirstNurseryAppointmentChart, int>, IFirstNurseryAppointmentRepository
     {
         public EFCoreFirstNurseryAppointmentRepository(CaitMazziniDbContext dbContext) : base(dbContext) { }
 
-        public async Task<FirstNurseryAppointment> GetByPatient(int patientId)
+        public async Task<FirstNurseryAppointmentChart> GetByPatient(int patientId)
         {
-            return await _dbContext.Set<FirstNurseryAppointment>().FirstAsync(x => x.Patient.Id == patientId);
+            return await _dbContext.Set<FirstNurseryAppointmentChart>().FirstOrDefaultAsync(x => x.Patient.Id == patientId);
         }
     }
 }

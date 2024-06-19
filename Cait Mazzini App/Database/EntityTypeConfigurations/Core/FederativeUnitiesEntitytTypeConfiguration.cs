@@ -9,6 +9,7 @@ namespace CaitMazziniApp.Database.EntityTypeConfigurations
         public void Configure(EntityTypeBuilder<FederativeUnity> builder)
         {
             builder.ToTable("federative_unities");
+            builder.Property(x => x.CountryId).HasColumnName("country_id");
         }
     }
 }
